@@ -7,8 +7,8 @@ import org.junit.jupiter.api.Test;
 
 import com.project.filchat.common.exception.ErrorCode;
 import com.project.filchat.common.exception.UnAuthorizedException;
-import com.project.filchat.domain.auth.AuthDto;
 import com.project.filchat.infrastructure.config.properties.JwtProperties;
+import com.project.filchat.interfaces.auth.AuthDto;
 
 class JwtProviderTest {
     private final String secretKey = "2901ujr9021urf0u902hf021y90fh9c210hg093";
@@ -21,7 +21,7 @@ class JwtProviderTest {
         // given
 
         // when
-        AuthDto.LoginResponse jwtTokens = jwtProvider.createJwtToken("userToken", "nickname");
+        AuthDto.TokenResponse jwtTokens = jwtProvider.createJwtToken("userToken", "nickname");
 
         // then
         assertThat(jwtTokens.accessToken()).isNotBlank();
