@@ -5,7 +5,7 @@ import java.util.UUID;
 import com.project.filchat.common.util.TokenGenerator;
 import com.project.filchat.domain.AbstractEntity;
 import com.project.filchat.domain.auth.OAuthProvider;
-import com.project.filchat.domain.auth.OAuthUser;
+import com.project.filchat.interfaces.auth.AuthDto;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -78,12 +78,12 @@ public class User extends AbstractEntity {
     }
 
     @Builder
-    public User(OAuthUser user, OAuthProvider provider) {
+    public User(AuthDto.LoginRequest request, OAuthProvider provider) {
         this.userToken = TokenGenerator.randomCharacterWithPrefix(PREFIX_USER);
         this.nickname = UUID.randomUUID().toString().substring(0, 29);
-        this.gender = user.getGender();
-        this.ageGroup = AgeGroup.fromAge(user.getAgeGroup());
-        this.identifier = user.getIdentifier();
+        this.gender = request.gender();
+        this.ageGroup = AgeGroup.fromAge(request.ageGroup());
+        this.identifier = request.identifier();
         this.provider = provider;
     }
 }

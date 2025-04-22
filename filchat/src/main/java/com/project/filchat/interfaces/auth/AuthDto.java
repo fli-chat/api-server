@@ -1,9 +1,15 @@
 package com.project.filchat.interfaces.auth;
 
+import com.project.filchat.domain.auth.OAuthProvider;
+import com.project.filchat.domain.user.User;
+
 public class AuthDto {
 
     public record LoginRequest(
-        String code
+        OAuthProvider provider,
+        String identifier,
+        User.Gender gender,
+        int ageGroup
     ) {
     }
 
