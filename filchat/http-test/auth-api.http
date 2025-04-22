@@ -1,0 +1,11 @@
+
+### 회원가입 및 로그인
+POST http://localhost:8080/api/auth/KAKAO/login
+Content-Type: application/json
+# https://kauth.kakao.com/oauth/authorize?client_id=dba329a4ebccbbcba313b1b3da6f0f16&redirect_uri=http://localhost:8080&response_type=code
+
+{
+  "code": "htrMUs1OY4jhX7wuPl0vir9ySIT9ufN467xHizNZjxAykVfOhcFb3wAAAAQKFwtrAAABlliACWQh5oEAb4_jFQ"
+}
+
+

@@ -3,3 +3,12 @@ spring:
     url: ${db.dev.datasource.url}
     username: ${db.dev.datasource.username}
     password: ${db.dev.datasource.password}
+
+oauth:
+  kakao:
+    server-info:
+      auth-token-url: https://kauth.kakao.com/oauth/token
+      resource-server-url: https://kapi.kakao.com/v2/user/me
+      redirect-url: http://localhost:8080
+    client-id: ${kakao.client-id}
+    secret-id: ${kakao.secret-id}
